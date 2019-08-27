@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+{% load static %}
 <head>
 	<title>Car Detail</title>
 </head>
 <body>
+	<div class ="row">
+		<img src="{{car.car_img.url}}" class="img-fluid img-thumbnail" alt="Responsive image">
+	</div>
 		<h1>
 			{{car.make}} - {{car.model}}
 			<small>
@@ -11,5 +16,12 @@
 			</small>
 		</h1>
 		<hr>
+		<a href="{% url 'car-update' car.id %}">
+        <button type="button" class="btn btn-info btn-md">Update</button>
+    </a>
+    <a href="{% url 'car-delete' car.id %}">
+       
+        <button type="button" class="btn btn-info btn-md">Delete</button>
+    </a>
 </body>
 </html>

@@ -1,19 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Car List</title>
-</head>
-<body>
+{% extends "base.html" %} 
+{% load static %}
+{% block title %}list{% endblock title%}
+
+{% block content %}
+<div class ="row">
 	{% for car in cars %}
+	<div class = "col-12 col-md-3 col-lg-4">
 		<a href="{{car.get_absolute_url}}">
+	
+ 		<div class="card" style="width: 18rem;">
+		<img src="{{car.car_img.url}}" class="img-fluid img-thumbnail" alt="Responsive image">
+	
+			<div class="card-body">
 			<h1>
-				{{car.make}} - {{car.model}}
+				 <p class="card-text"><h6> Car Model: {{car.make}} - {{car.model}} <h6></p>
+				
 				<small>
 					{{car.year}}
 				</small>
 			</h1>
+			</div>
+		</div>
 		</a>
-		<hr>
+	</div>
+</div>
+		
 	{% endfor %}
-</body>
-</html>
+{% endblock content %}
